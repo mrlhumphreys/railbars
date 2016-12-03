@@ -63,7 +63,7 @@ module Railbars
     #   irb> hbblock('myBlockHelper', 'param') { '<p>Hello</p>' }
     #   #=> "{{#myBlockHelper param}}<p>Hello</p>{{/myBlockHelper}}"
     def hbblock(name, *params, &block)
-      "{{##{name} #{hbparams(*params)}}}#{capture(&block)}{{/#{name}}}"
+      "{{##{name} #{hbparams(*params)}}}#{capture(&block)}{{/#{name}}}".html_safe
     end
 
     # Handlebars helper helper, returns the helper name with params
